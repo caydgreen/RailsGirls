@@ -1,0 +1,43 @@
+<%= form_for(@idea, :html => { :multipart => true }) do |f| %>
+  <% if @idea.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@idea.errors.count, "error") %> prohibited this idea from being saved:</h2>
+
+      <ul>
+      <% @idea.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description, :cols => '60', :rows => '4' %>
+  </div>
+  <div class="field">
+    <%= f.label :picture, "Upload a Picture" %>
+    <%= f.file_field :picture %>
+  </div>
+  <div>
+    <%= @idea.name.present? %>
+    <% if @idea.name.present? %>
+      <%= f.label :category %>
+      <%= f.collection_select :category_id, @categories, :id, :name %>  
+    <% else %>
+      <%= f.label :category %>
+      <%= f.collection_select :category_id, @categories, :id, :name %>  
+    <% end %>
+    
+  </div>
+  <div class="field">
+    <%= f.label :rating, "Rate the Idea" %>
+    <%= f.text_field :rating, :size => '2' %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

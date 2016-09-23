@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Railsgirls Idea App</title>
+  <%= stylesheet_link_tag  "application", :media => "all" %>  
+  <%= stylesheet_link_tag  "bootstrap" %> 
+  <link rel='stylesheet' href='/assets/javascripts/jquery-ui-1.10.0.custom/css/ui-lightness/jquery-ui-1.10.0.custom.css'>
+  <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
+  <%#= javascript_include_tag "jquery-1.9.1" %>
+  <%= javascript_include_tag "jquery.tablednd" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <meta charset="utf-8" />
+  <script>
+  // $(function() {
+  //   $( "#sortable" ).sortable({
+  //     placeholder: "ui-state-highlight"
+  //   });
+  //   // $( "#sortable" ).disableSelection();
+  // });
+  </script>
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="/">Ideas Newbie App</a>
+      <ul class="nav">
+        <li><a href="/ideas">Ideas</a></li>
+        <li><a href="/categories">Categories</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <%= yield %>
+</div>
+
+<footer>
+<div class="container">
+  Rails Girls 2013
+</div>
+</footer>
+</body>
+</html>
